@@ -1,5 +1,7 @@
 FROM node:latest
 
+WORKDIR /opp/app
+
 COPY . .
 
 EXPOSE 1000:1000
