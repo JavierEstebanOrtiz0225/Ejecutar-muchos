@@ -18,11 +18,11 @@ jobs:
         cd ${{  github.event.inputs.dir }}/ &&
 
         docker build -t ${{ github.event.inputs.dir  }} . &&
-        docker run --network host -p 1000:1000 -it --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }}
+        docker run --network host -it --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }}
         docker exec -i  ${{ github.event.inputs.dir  }}  bash -c "pm2 start server.js"
     - name: Run main image
       run: | 
           cd api_tres
           docker build -t main .
-          docker run --network host -p 1200:1200 -it --detach --name main main
+          docker run --network host -it --detach --name main main
           docker exec -i  main bash -c "apt-get install curl && curl localhost:1000/"
