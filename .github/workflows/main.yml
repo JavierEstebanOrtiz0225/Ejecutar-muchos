@@ -14,10 +14,10 @@ jobs:
     - name: Run image
       run: |
         ls
-        cd ${{  github.event.inputs.dir }}/
+        cd ${{  github.event.inputs.dir }}/ &&
 
-        docker build -t ${{ github.event.inputs.dir  }} . 
-        docker run -p 1000:1000 -i --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }} 
+        docker build -t ${{ github.event.inputs.dir  }} . &&
+        docker run -p 1000:1000 -i --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }}  &&
 
         docker exec -it ${{ github.event.inputs.dir  }} bash -c "pm2 start server.js"
 
