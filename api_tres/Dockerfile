@@ -1,5 +1,8 @@
 FROM node:latest
 
 COPY . .
-RUN npm install
+
 EXPOSE 1200:1200
+
+RUN npm install
+RUN npm i -g pm2
