@@ -22,5 +22,5 @@ jobs:
       run: | 
           cd api_tres
           docker build -t main .
-          docker run -p 1200:1200 -i --detach --name main main
-          docker exec -it  main bash -c "ls"
+          docker run -p 1200:1200 -it --detach --name main main
+          docker exec -i  main bash -c "ls"
