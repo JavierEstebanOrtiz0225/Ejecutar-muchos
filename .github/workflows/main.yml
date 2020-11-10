@@ -9,9 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-
-
-    - uses: actions/node-setup@v1
+    - uses: actions/setup-node@v2-beta
 
     - name: Run image
       run: |
