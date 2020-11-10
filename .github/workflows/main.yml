@@ -13,11 +13,10 @@ jobs:
 
     - name: Run image
       run: |
-        ls
         cd ${{  github.event.inputs.dir }}/ &&
 
         docker build -t ${{ github.event.inputs.dir  }} . &&
-        docker run -p 1000:1000 -it --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }}  &&
+        docker run -p 1000:1000 -it --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }}
 
     - name: Run main image
       run: | 
