@@ -1,7 +1,5 @@
 FROM node:latest
 
 COPY . .
-
+RUN npm install
 EXPOSE 1200:1200
-
-CMD [ "node server.js" ]
