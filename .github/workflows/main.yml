@@ -8,14 +8,13 @@ jobs:
   Setup repository:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup repository
     - uses: action/checkout@v2
 
     - name: Setup node
-    - uses: action/node-setup@v1
+      uses: action/node-setup@v1
 
     - name: Run image
-    - run: |
+      run: |
         cd ${{  github.event.inputs.dir }}
 
         docker build -t ${{ github.event.inputs.dir  }} . 
@@ -24,7 +23,7 @@ jobs:
         docker exec -it ${{ github.event.inputs.dir  }} bash -c "pm2 server.js"
 
     - name: Run main image
-    - run: | 
+      run: | 
           cd apiTres
           docker build -t main .
           docker run -p 1200:1200 -it --name main main
