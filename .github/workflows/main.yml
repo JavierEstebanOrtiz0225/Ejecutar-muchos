@@ -20,6 +20,6 @@ jobs:
 
     - name: Run main image
       run: | 
-          cd apiTres
+          cd api_tres
           docker build -t main .
           docker run -p 1200:1200 -i --detach --name main main
