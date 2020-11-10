@@ -8,10 +8,10 @@ jobs:
   Setup_repository:
     runs-on: ubuntu-latest
     steps:
-    - uses: action/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Setup node
-      uses: action/node-setup@v1
+
+    - uses: actions/node-setup@v1
 
     - name: Run image
       run: |
