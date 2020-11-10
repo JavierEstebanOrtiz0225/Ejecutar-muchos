@@ -17,13 +17,10 @@ jobs:
         cd ${{  github.event.inputs.dir }}/ &&
 
         docker build -t ${{ github.event.inputs.dir  }} . &&
-        docker run -p 1000:1000 -i --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }}  &&
-
-        docker exec -it ${{ github.event.inputs.dir  }} bash -c "pm2 start server.js"
+        docker run -p 1000:1000 -it --detach --name ${{ github.event.inputs.dir  }} ${{ github.event.inputs.dir  }}  &&
 
     - name: Run main image
       run: | 
           cd apiTres
           docker build -t main .
           docker run -p 1200:1200 -i --detach --name main main
-          docker exec -it main bash -c "apt-get install curl && curl localhost:1000/"
